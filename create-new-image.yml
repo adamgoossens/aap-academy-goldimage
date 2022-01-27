@@ -1,0 +1,8 @@
+- import_playbook: secure-ism-official.yml
+- hosts: all
+  tasks:
+    - name: Remove cloud-init data
+      shell: "rm -rf /var/lib/cloud/*"
+
+    - name: Remove ec2-user authorized_keys
+      shell: "rm /home/ec2-user/.ssh/authorized_keys"
